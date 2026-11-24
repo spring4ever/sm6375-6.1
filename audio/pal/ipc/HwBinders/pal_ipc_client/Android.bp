@@ -1,0 +1,29 @@
+cc_library_shared {
+    name: "libpalclient",
+    defaults: [
+        "android_hardware_qtiaudio_config_defaults",
+    ],
+    owner: "qti",
+    vendor: true,
+
+    cflags: [
+        "-Wno-unused-parameter",
+        "-Wno-unused-variable",
+    ],
+
+    srcs: ["src/pal_client_wrapper.cpp"],
+
+    export_header_lib_headers: ["libarpal_headers"],
+
+    header_libs: ["libarpal_headers"],
+
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "libhardware",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+        "vendor.qti.hardware.pal@1.0",
+    ],
+}
